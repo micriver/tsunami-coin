@@ -1,0 +1,42 @@
+body {
+  background-image: url("./images/Tsunami_by_hokusai_19th_century.jpg");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}
+
+.App {
+  /* flex container */
+  padding: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo {
+  /* border: solid red 1px; */
+  align-self: flex-end;
+  max-width: 550px;
+  margin-right: 80px;
+}
+
+.Title {
+  margin: auto 0px;
+}
+
+.TagLine {
+  margin: auto 0px;
+}
+
+.cryptocurrency-rankings-container {
+  margin: 30px;
+}
+
+/* 
+
+Main type blue: #5ea6d8
+drop shadow color: #f2d3a8
+
+*/

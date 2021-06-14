@@ -1,0 +1,25 @@
+
+.crypto {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+  background-color: rgba(135, 206, 250, 0.9);
+  border: solid 3px #4484b3;
+  border-radius: 15px;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+section {
+  margin: 15px 20px;
+}
+
+/* 
+
+Main type blue: #5ea6d8
+drop shadow color: #f2d3a8
+
+*/
