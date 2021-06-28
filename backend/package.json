@@ -4,12 +4,21 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server",
+    "dev": "nodemon server"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "moment": "^2.29.1",
+    "node-fetch": "^2.6.1",
+    "request": "^2.88.2",
+    "request-promise": "^4.2.6",
+    "unirest": "^0.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.7"
   }
 }
