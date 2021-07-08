@@ -8,11 +8,12 @@ body {
 
 .App {
   /* flex container */
-  padding: 200px;
+  padding: 100px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* border: 1px solid red; */
 }
 
 .logo {
@@ -24,12 +25,13 @@ body {
 
 .cryptocurrencyRankingsContainer {
   margin: 30px;
+  width: 100%;
 }
 
 .header {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
 
   background-color: rgba(135, 206, 250, 0.9);
@@ -52,7 +54,7 @@ header {
 }
 
 .rankHeader {
-  max-width: 50px;
+  max-width: 25px;
 }
 
 .price {

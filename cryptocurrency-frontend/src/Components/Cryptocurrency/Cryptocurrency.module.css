@@ -1,7 +1,7 @@
-.crypto {
+.cryptoRow {
   display: flex;
   flex-direction: row;
-  justify-content: center;
+  justify-content: space-between;
   text-align: center;
 
   background-color: rgba(135, 206, 250, 0.9);
@@ -10,12 +10,12 @@
   font-size: 15px;
   /* font-weight: bold; */
   padding: 10px;
+  /* border: solid red 1px; */
 }
 
 section {
   margin: 15px 5px;
   width: 145px;
-  /* border: solid red 1px; */
 }
 
 .nameSymbol {
@@ -23,8 +23,14 @@ section {
 }
 
 .rank {
-  max-width: 50px;
+  width: 25px;
   text-align: center;
+}
+
+.rankBG {
+  padding: 2px 4px 2px;
+  background-color: rgba(242, 211, 168, 0.7);
+  border-radius: 15%;
 }
 
 .price {
@@ -33,6 +39,7 @@ section {
 
 .circulatingSupply {
   text-align: right;
+  width: 185px;
 }
 
 /* 

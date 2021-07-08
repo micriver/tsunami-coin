@@ -7,35 +7,49 @@ const { reset } = require("nodemon");
 // create an instance of express
 const app = express();
 
-const rp = require("request-promise");
+// test get request using local json file
+const data = require("./CMC.json");
+// console.log(data);
 
 app.get("/api/", (req, res) => {
-  const requestOptions = {
-    method: "GET",
-    uri: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
-    // query string parameters
-    qs: {
-      start: "1",
-      limit: "10",
-      convert: "USD",
-    },
-    headers: {
-      "X-CMC_PRO_API_KEY": "43cca0b6-9de8-499a-9018-c984c79e5600",
-    },
-    json: true,
-    gzip: true,
-  };
-
-  rp(requestOptions)
-    .then((response) => {
-      console.log("API call response:", response);
-      // return the response as a JSON object
-      res.json(response);
-    })
-    .catch((err) => {
-      console.log("API call error:", err.message);
-    });
+  res.json(data);
+  // fetch("./CoinCap-response.json")
+  //   .then((response) => {
+  //     return response.json();
+  //   })
+  //   .then((data) => console.log(data))
+  //   .catch((error) => {
+  //     console.log(error);
+  //   });
 });
+// const rp = require("request-promise");
+// app.get("/api/", (req, res) => {
+//   const requestOptions = {
+//     method: "GET",
+//     uri: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+//     // query string parameters
+//     qs: {
+//       start: "1",
+//       limit: "10",
+//       convert: "USD",
+//     },
+//     headers: {
+//       "X-CMC_PRO_API_KEY": "43cca0b6-9de8-499a-9018-c984c79e5600",
+//     },
+//     json: true,
+//     gzip: true,
+//   };
+
+//   rp(requestOptions)
+//     .then((response) => {
+//       console.log("API call response:", response);
+//       // return the response as a JSON object
+//       res.json(response);
+//     })
+//     .catch((err) => {
+//       console.log("API call error:", err.message);
+//     });
+// });
 
 const PORT = 3001;
 app.listen(PORT, () => {
@@ -65,20 +79,5 @@ app.get("/", (req, res) => {
 });
 
 
-// test get request using local json file
-// const data = require("./CMC.json");
-// console.log(data);
-
-// app.get("/api/", (req, res) => {
-//   res.json(data);
-//   // fetch("./CoinCap-response.json")
-//   //   .then((response) => {
-//   //     return response.json();
-//   //   })
-//   //   .then((data) => console.log(data))
-//   //   .catch((error) => {
-//   //     console.log(error);
-//   //   });
-// });
 
 */
