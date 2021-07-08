@@ -22,15 +22,7 @@ body {
   margin-right: 80px;
 }
 
-.Title {
-  margin: auto 0px;
-}
-
-.TagLine {
-  margin: auto 0px;
-}
-
-.cryptocurrency-rankings-container {
+.cryptocurrencyRankingsContainer {
   margin: 30px;
 }
 

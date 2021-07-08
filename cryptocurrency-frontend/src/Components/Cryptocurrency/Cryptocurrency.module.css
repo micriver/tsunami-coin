@@ -1,4 +1,3 @@
-
 .crypto {
   display: flex;
   flex-direction: row;
@@ -14,7 +13,9 @@
 }
 
 section {
-  margin: 15px 20px;
+  margin: 15px 5px;
+  width: 145px;
+  border: solid red 1px;
 }
 
 /* 
