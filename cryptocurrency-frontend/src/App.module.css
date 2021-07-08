@@ -26,6 +26,42 @@ body {
   margin: 30px;
 }
 
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: center;
+
+  background-color: rgba(135, 206, 250, 0.9);
+  border-top: white solid 2px;
+  border-bottom: white solid 2px;
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 10px;
+}
+
+header {
+  margin: 5px 5px;
+  width: 145px;
+  /* border: solid red 1px; */
+}
+
+.nameHeader {
+  text-align: left;
+}
+
+.rankHeader {
+  max-width: 50px;
+}
+
+.price {
+  text-align: right;
+}
+
+.circulatingSupply {
+  text-align: right;
+}
 /* 
 
 Main type blue: #5ea6d8

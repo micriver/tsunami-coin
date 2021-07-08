@@ -7,12 +7,7 @@ function App() {
   // cryptocurrency api
   const [text, setText] = useState([]);
 
-  /*
-
-  create a function and ternary operator to grab data with useEffect below in the beginning then to update that data every 30 seconds OR when synchronize button is manually pressed
-
-  */
-  // interact with our Express backend
+  // grab data from our Express backend
   useEffect(() => {
     fetch("/api/")
       .then((result) => {
@@ -32,9 +27,17 @@ function App() {
       <img className={styles.logo} src={logoTag} alt='coin tsunami logo' />
       <div className={styles.cryptocurrencyRankingsContainer}>
         {/* add column headers */}
-        {/* <div className='headers'>
-          <header className='rank'>#</header>
-        </div> */}
+        <div className={styles.header}>
+          <header className={styles.rankHeader}>#</header>
+          <header className={styles.nameHeader}>Name</header>
+          <header className={styles.price}>Price</header>
+          <header>24hr %</header>
+          <header>Market Cap</header>
+          <header>Volume (24h) </header>
+          <header className={styles.circulatingSupply}>
+            Circulating Supply
+          </header>
+        </div>
         {text.map((cryptoCurrency) => {
           return (
             <Cryptocurrency
@@ -62,9 +65,6 @@ export default App;
 
 notes/resources:
 
-number formating:
-https://stackoverflow.com/questions/149055/how-to-format-numbers-as-currency-strings
-
 layout left to right:
 
 1. rank - number
@@ -91,4 +91,7 @@ layout left to right:
             supply={cryptoCurrency.supply}
           />
         ))} }
+
+  create a function and ternary operator to grab data with useEffect below in the beginning then to update that data every 30 seconds OR when synchronize button is manually pressed
+
 */

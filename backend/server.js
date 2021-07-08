@@ -7,39 +7,16 @@ const { reset } = require("nodemon");
 // create an instance of express
 const app = express();
 
-// const data = require("./CoinCap-response.json");
-const data = require("./CMC.json");
-// console.log(data);
-// const coins = require("./CoinCap-response.json");
+const rp = require("request-promise");
 
-// create simple endpoint
 app.get("/api/", (req, res) => {
-  res.json(data);
-  // fetch("./CoinCap-response.json")
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .then((data) => console.log(data))
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
-});
-
-// console.log(coins);
-
-const PORT = 3001;
-app.listen(PORT, () => {
-  console.log(`Server started on port ${PORT}`);
-  console.log(`Check it out @ http://localhost:${PORT}`);
-});
-/*
-
-const requestOptions = {
+  const requestOptions = {
     method: "GET",
     uri: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+    // query string parameters
     qs: {
       start: "1",
-      limit: "1",
+      limit: "10",
       convert: "USD",
     },
     headers: {
@@ -52,11 +29,22 @@ const requestOptions = {
   rp(requestOptions)
     .then((response) => {
       console.log("API call response:", response);
+      // return the response as a JSON object
+      res.json(response);
     })
     .catch((err) => {
       console.log("API call error:", err.message);
     });
 });
+
+const PORT = 3001;
+app.listen(PORT, () => {
+  console.log(`Server started on port ${PORT}`);
+  console.log(`Check it out @ http://localhost:${PORT}`);
+});
+/*
+
+
 
 
 integrate node.js backend with react frontend:
@@ -76,5 +64,21 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
+
+// test get request using local json file
+// const data = require("./CMC.json");
+// console.log(data);
+
+// app.get("/api/", (req, res) => {
+//   res.json(data);
+//   // fetch("./CoinCap-response.json")
+//   //   .then((response) => {
+//   //     return response.json();
+//   //   })
+//   //   .then((data) => console.log(data))
+//   //   .catch((error) => {
+//   //     console.log(error);
+//   //   });
+// });
 
 */
