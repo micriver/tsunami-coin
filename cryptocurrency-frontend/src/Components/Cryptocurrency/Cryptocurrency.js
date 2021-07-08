@@ -3,6 +3,7 @@ import styles from "./Cryptocurrency.module.css";
 
 function Cryptocurrency(coins) {
   const {
+    // metadata,
     // key,
     rank,
     name,

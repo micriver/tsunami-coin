@@ -6,10 +6,11 @@ import logoTag from "./images/coin-tsunami-logo-crop.png";
 function App() {
   // cryptocurrency api
   const [text, setText] = useState([]);
+  const [metadata, setMeta] = useState([]);
 
   // grab data from our Express backend
   useEffect(() => {
-    fetch("/api/")
+    fetch("/marketdata/")
       .then((result) => {
         if (result.ok) {
           return result.json();
@@ -18,9 +19,18 @@ function App() {
       // you need to make sure that map is able to loop through an array of objects: https://stackoverflow.com/questions/30142361/react-js-uncaught-typeerror-this-props-data-map-is-not-a-function
       .then((apiText) => setText(apiText.data))
       .catch((error) => console.log(error));
+
+    // fetch("/metadata/")
+    //   .then((result) => {
+    //     if (result.ok) {
+    //       return result.json();
+    //     }
+    //   })
+    //   // you need to make sure that map is able to loop through an array of objects: https://stackoverflow.com/questions/30142361/react-js-uncaught-typeerror-this-props-data-map-is-not-a-function
+    //   .then((metadata) => setMeta(metadata.data))
+    //   .catch((error) => console.log(error));
   }, []);
 
-  // console.log(text);
   // console.log("Text is an: ", typeof text);
   return (
     <div className={styles.App}>
@@ -41,6 +51,7 @@ function App() {
         {text.map((cryptoCurrency) => {
           return (
             <Cryptocurrency
+              // metadata={metadata.logo}
               key={cryptoCurrency.id}
               rank={cryptoCurrency.cmc_rank}
               name={cryptoCurrency.name}

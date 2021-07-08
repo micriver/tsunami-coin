@@ -8,11 +8,17 @@ const { reset } = require("nodemon");
 const app = express();
 
 // test get request using local json file
-const data = require("./CMC.json");
-// console.log(data);
+const marketData = require("./CMC.json");
+// console.log(marketData);
+const metadata = require("./CMC-metadata.json");
+// console.log(metadata);
 
-app.get("/api/", (req, res) => {
-  res.json(data);
+app.get("/metadata/", (req, res) => {
+  res.json(metadata);
+});
+
+app.get("/marketdata/", (req, res) => {
+  res.json(marketData);
   // fetch("./CoinCap-response.json")
   //   .then((response) => {
   //     return response.json();
