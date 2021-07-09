@@ -3,8 +3,8 @@ import styles from "./Cryptocurrency.module.css";
 
 function Cryptocurrency(coins) {
   const {
-    // metadata,
-    // key,
+    metadata,
+    id,
     rank,
     name,
     symbol,
@@ -25,6 +25,21 @@ function Cryptocurrency(coins) {
     // maximumFractionDigits: 0, // (causes 2500.99 to be printed as $2,501)
   });
 
+  // pull out metadata objects for each coin, compare the coin's id found in the metadata to the coin id from the "key" property
+  let logo = "";
+  let findLogo = () => {
+    Object.values(metadata).forEach((metaVal) => {
+      // if (metaVal.id === id) console.log(`${name}'s id = `, metaVal.id);
+      if (metaVal.id === id) {
+        // console.log("here");
+        // console.log(metaVal.logo);
+        logo = metaVal.logo;
+        // return metaVal.logo;
+      }
+    });
+  };
+  findLogo();
+  // console.log(logo);
   return (
     <div className={styles.cryptoRow}>
       <section className={styles.rank}>
@@ -34,6 +49,7 @@ function Cryptocurrency(coins) {
         {name}&nbsp;
         {symbol}
       </section>
+      <img src={logo} alt='cryptocurrency logo' />
       <section className={styles.price}>{curFormatter.format(price)}</section>
       <section className='24hour-change'>
         {percent_change_24h.toFixed(2)}%

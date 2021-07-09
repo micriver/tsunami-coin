@@ -19,24 +19,22 @@ function App() {
       // you need to make sure that map is able to loop through an array of objects: https://stackoverflow.com/questions/30142361/react-js-uncaught-typeerror-this-props-data-map-is-not-a-function
       .then((apiText) => setText(apiText.data))
       .catch((error) => console.log(error));
-
-    // fetch("/metadata/")
-    //   .then((result) => {
-    //     if (result.ok) {
-    //       return result.json();
-    //     }
-    //   })
-    //   // you need to make sure that map is able to loop through an array of objects: https://stackoverflow.com/questions/30142361/react-js-uncaught-typeerror-this-props-data-map-is-not-a-function
-    //   .then((metadata) => setMeta(metadata.data))
-    //   .catch((error) => console.log(error));
+    // fetch cryptocurrency metadata
+    fetch("/metadata/")
+      .then((result) => {
+        if (result.ok) {
+          return result.json();
+        }
+      })
+      .then((metadata) => setMeta(metadata.data))
+      .catch((error) => console.log(error));
   }, []);
 
-  // console.log("Text is an: ", typeof text);
+  // Object.values(metadata).forEach((val) => console.log(val.logo));
   return (
     <div className={styles.App}>
       <img className={styles.logo} src={logoTag} alt='coin tsunami logo' />
       <div className={styles.cryptocurrencyRankingsContainer}>
-        {/* add column headers */}
         <div className={styles.header}>
           <header className={styles.rankHeader}>#</header>
           <header className={styles.nameHeader}>Name</header>
@@ -51,8 +49,9 @@ function App() {
         {text.map((cryptoCurrency) => {
           return (
             <Cryptocurrency
-              // metadata={metadata.logo}
-              key={cryptoCurrency.id}
+              // pass metadata object
+              metadata={metadata}
+              id={cryptoCurrency.id}
               rank={cryptoCurrency.cmc_rank}
               name={cryptoCurrency.name}
               symbol={cryptoCurrency.symbol}
