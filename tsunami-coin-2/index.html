@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tsunami Coin - Ride the crypto wave!</title>
+    <link rel="stylesheet" href="./index.css" />
+    <link rel="stylesheet" href="./Cryptocurrency-style.css" />
+  </head>
+  <body>
+    <div class="app-container">
+      <img
+        class="logo"
+        src="./images/coin-tsunami-logo-crop.png"
+        alt="coin tsunami logo"
+      />
+      <div class="cryptocurrencyRankingsContainer">
+        <div class="header">
+          <header class="rankHeader">#</header>
+          <header class="nameHeader">Name</header>
+          <header class="price">Price</header>
+          <header>24hr %</header>
+          <header>Market Cap</header>
+          <header>Volume (24h)</header>
+          <header class="circulatingSupply"></header>
+        </div>
+        <div class="cryptoRow">
+          <section class="rank">
+            <span class="rankBG">1</span>
+          </section>
+          <section class="nameSymbol">Bitcoin &nbsp; BTC</section>
+          <img
+            src="https://s2.coinmarketcap.com/static/img/coins/64x64/1.png"
+            class="crypto-logo"
+            alt="cryptocurrency logo"
+          />
+          <section class="price">32906.15858818535</section>
+
+          <!-- <section class="24hour-change">
+            {percent_change_24h.toFixed(2)}%
+          </section>
+          {/*
+          <section class="7day-change">^2.78%</section>
+          */}
+          <section class="market-cap">
+            {curFormatter.format(market_cap)}
+          </section>
+          <section class="24hour-volume">
+            {curFormatter.format(volume_24h)}
+          </section>
+          <section class="circulatingSupply">
+            {total_supply.toLocaleString()}&nbsp; {symbol}
+          </section>
+          <section class="last-7days">Chart goes here</section> -->
+        </div>
+      </div>
+    </div>
+    <script src="./api-calls.js"></script>
+  </body>
+</html>
