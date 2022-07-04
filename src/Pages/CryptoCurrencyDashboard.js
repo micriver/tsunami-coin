@@ -12,9 +12,37 @@ const formatCurrency = new Intl.NumberFormat("en-US", {
   currency: "USD",
 });
 
+// create cryptocurrency rows with necessary data
+const buildGroupMeta = (cryptoCurrencyData, metadata) => {
+  // name, price, 24hr change, marketcap, volume, circulating supply
+  const results = [];
+  let cryptoObj = {};
+
+  for (const crypto of cryptoCurrencyData) {
+    cryptoObj = {
+      rank: crypto.cmc_rank,
+      name: crypto.name,
+      price: formatCurrency.format(crypto.quote.USD.price),
+      twentyFourHrChange: crypto.quote.USD.percent_change_24h.toFixed(2),
+      marketCap: formatCurrency.format(crypto.quote.USD.market_cap),
+      volume: formatCurrency.format(crypto.quote.USD.volume_24h),
+      totalSupply: crypto.total_supply,
+    };
+
+    Object.values(metadata).forEach((metaValue) => {
+      if (metaValue.name === crypto.name) {
+        console.log(crypto.name);
+      }
+    });
+    results.push(cryptoObj);
+  }
+  return results;
+};
+
 export default function CryptoCurrencyDashboard(props) {
   const { cryptoCurrencyData, metadata } = props;
 
+  console.log(buildGroupMeta(cryptoCurrencyData, metadata));
   return (
     <TableContainer component={Paper}>
       <Table sx={{ minWidth: 650 }} aria-label='simple table'>
