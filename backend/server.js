@@ -1,48 +1,71 @@
 const fetch = require("node-fetch");
 
-// import express
 const { response } = require("express");
 const express = require("express");
 const { reset } = require("nodemon");
-// create an instance of express
+
 const app = express();
 
-// test get request using local json file
 const marketData = require("./CMC.json");
-// console.log(marketData);
 const metadata = require("./CMC-metadata.json");
-// console.log(metadata);
 
 app.get("/metadata/", (req, res) => {
   res.json(metadata);
 });
-
-// new api: 57b60e4f-fbc9-40c0-98d8-48a0ff732ffd
-
 app.get("/marketdata/", (req, res) => {
   res.json(marketData);
-  // fetch("./CoinCap-response.json")
-  //   .then((response) => {
-  //     return response.json();
-  //   })
-  //   .then((data) => console.log(data))
-  //   .catch((error) => {
-  //     console.log(error);
-  //   });
 });
+
+const API_KEY = "57b60e4f-fbc9-40c0-98d8-48a0ff732ffd"; // new API Key, internet sucks though
+
+// 7/4/2022
+// let response = null;
+// new Promise(async (resolve, reject) => {
+//   try {
+//     response = await axios.get(
+//       "https://sandbox-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
+//       {
+//         headers: {
+//           "X-CMC_PRO_API_KEY": "b54bcf4d-1bca-4e8e-9a24-22ff2c3d462c",
+//         },
+//       }
+//     );
+//   } catch (ex) {
+//     response = null;
+//     // error
+//     console.log(ex);
+//     reject(ex);
+//   }
+//   if (response) {
+//     // success
+//     const json = response.data;
+//     console.log(json);
+//     resolve(json);
+//   }
+// });
+// app.get("/marketdata/", (req, res) => {
+// res.json(marketData);
+// fetch("./CoinCap-response.json")
+//   .then((response) => {
+//     return response.json();
+//   })
+//   .then((data) => console.log(data))
+//   .catch((error) => {
+//     console.log(error);
+//   });
+// });
 // const rp = require("request-promise");
-// app.get("/api/", (req, res) => {
+// app.get("/marketdata/", (req, res) => {
 //   const requestOptions = {
 //     method: "GET",
 //     uri: "https://pro-api.coinmarketcap.com/v1/cryptocurrency/listings/latest",
-//     // query string parameters
 //     qs: {
 //       start: "1",
 //       limit: "10",
 //       convert: "USD",
 //     },
 //     headers: {
-//       "X-CMC_PRO_API_KEY": "43cca0b6-9de8-499a-9018-c984c79e5600",
+//       "X-CMC_PRO_API_KEY": API_KEY,
 //     },
 //     json: true,
 //     gzip: true,
@@ -51,7 +74,6 @@ app.get("/marketdata/", (req, res) => {
 //   rp(requestOptions)
 //     .then((response) => {
 //       console.log("API call response:", response);
-//       // return the response as a JSON object
 //       res.json(response);
 //     })
 //     .catch((err) => {
@@ -65,9 +87,6 @@ app.listen(PORT, () => {
   console.log(`Check it out @ http://localhost:${PORT}`);
 });
 /*
-
-
-
 
 integrate node.js backend with react frontend:
 https://youtu.be/19CcxzZHwuI?t=183

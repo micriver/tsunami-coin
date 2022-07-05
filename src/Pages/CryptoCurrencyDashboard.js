@@ -44,7 +44,7 @@ export default function CryptoCurrencyDashboard(props) {
 
   return (
     <Container sx={{ my: 7 }}>
-      <TableContainer component={Paper}>
+      <TableContainer sx={{ backgroundColor: "#5da6d8eb" }} component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label='simple table'>
           <TableHead>
             <TableRow>
@@ -62,7 +62,9 @@ export default function CryptoCurrencyDashboard(props) {
               (crypto, index) => (
                 <TableRow
                   key={index}
-                  sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  sx={{
+                    "&:last-child td, &:last-child th": { border: 0 },
+                  }}
                 >
                   <TableCell component='th' scope='crypto'>
                     {crypto.rank}
