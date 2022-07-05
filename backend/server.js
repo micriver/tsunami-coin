@@ -17,6 +17,8 @@ app.get("/metadata/", (req, res) => {
   res.json(metadata);
 });
 
+// new api: 57b60e4f-fbc9-40c0-98d8-48a0ff732ffd
+
 app.get("/marketdata/", (req, res) => {
   res.json(marketData);
   // fetch("./CoinCap-response.json")
